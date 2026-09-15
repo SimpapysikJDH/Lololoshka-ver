@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7b9c91831fb7b4d9cd5733e92f63e5, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterData
+  monsterName: "\u041C\u043E\u043D\u0441\u0442\u0440"
+  maxHP: 3
+  moveSpeed: 1.6
+  detectionRange: 7
+  attackRange: 1
+  damage: 1
+  attackCooldown: 1
+  hitInvincibilityDuration: 0.2
+  wanderSpeed: 1
+  wanderMoveDuration: 1
+  wanderPauseDuration: 2
+  minCoinDrop: 0
+  maxCoinDrop: 1

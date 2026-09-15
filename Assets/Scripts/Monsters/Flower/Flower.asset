@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25f8353fd1b1154fb3ebe394b47dbb9, type: 3}
+  m_Name: Flower
+  m_EditorClassIdentifier: Assembly-CSharp::FlowerMonsterData
+  monsterName: "\u041C\u043E\u044F \u041A\u0432\u0456\u0442\u043E\u0447\u043A\u0430"
+  maxHP: 10
+  moveSpeed: 2
+  detectionRange: 6
+  attackRange: 1
+  damage: 1
+  attackCooldown: 1
+  hitInvincibilityDuration: 0.2
+  wanderSpeed: 1
+  wanderMoveDuration: 1
+  wanderPauseDuration: 1.5
+  revealRange: 1.2
+  hideRange: 1.8
+  openAnimDuration: 0.208
+  closeAnimDuration: 0.208
+  reopenCooldown: 0.5

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9765210b9ffdf4b43b1299e2393646bf, type: 3}
+  m_Name: Ineseble
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveArtifactData
+  artifactName: "\u0410\u043A\u0442\u0438\u0432\u043D\u0438\u0439 \u0430\u0440\u0442\u0435\u0444\u0430\u043A\u0442"
+  icon: {fileID: 8919166590036328382, guid: b50dc85aed4b6ed46872ee6794b9beca, type: 3}
+  description: 
+  effectType: 3
+  duration: 2
+  value: 60.87
+  charges: 1692
+  cooldownRooms: 6
+  worldPickupPrefab: {fileID: 3658604159437717477, guid: 6d4c0145c3e22044d86a4d83d3472ec2,
+    type: 3}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c2e8d69649b9241be3c091d0aa388f, type: 3}
+  m_Name: Slime!
+  m_EditorClassIdentifier: Assembly-CSharp::SlimeData
+  monsterName: "\u0421\u043B\u0430\u0439\u043C"
+  maxHP: 5
+  moveSpeed: 0.15
+  detectionRange: 6
+  attackRange: 1
+  damage: 1
+  attackCooldown: 1
+  hitInvincibilityDuration: 0.2
+  wanderSpeed: 1
+  wanderMoveDuration: 1
+  wanderPauseDuration: 4
+  minCoinDrop: 0
+  maxCoinDrop: 1
+  chargeDuration: 1.2
+  trackPlayerDuringCharge: 1
+  dashSpeed: 8
+  dashDuration: 0.6
+  postDashCooldown: 1

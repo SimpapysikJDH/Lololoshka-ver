@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Water
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
+  m_AnimatedSprites:
+  - {fileID: -958144663, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1034939142, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1979685103, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -1907679884, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1681846965, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 233409770, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1350763085, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1090001820, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -358858383, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -891717266, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -734396083, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -2095121062, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -613092929, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -1906117030, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -648050602, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -149175914, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 809164394, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -468779886, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1394328695, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 175162978, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1898755935, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 990821049, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 115905515, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -433644381, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -1696462489, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -446674029, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -2058293047, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1646834730, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -1486861774, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: 1544032184, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -1218352181, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  - {fileID: -355835818, guid: add3e4477c60d1c4da4e816195005a99, type: 3}
+  m_MinSpeed: 30
+  m_MaxSpeed: 30
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0

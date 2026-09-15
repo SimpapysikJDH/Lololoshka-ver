@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05708c574d6bc1b4ca5f9d55970d6df0, type: 3}
+  m_Name: Knight+1
+  m_EditorClassIdentifier: Assembly-CSharp::ArtifactData
+  artifactName: Knife but better
+  icon: {fileID: 5199721143409959425, guid: 06f48e60350be044aa22db72f7f72be4, type: 3}
+  description: 
+  speedBonus: 0
+  heartsToAdd: 0
+  projectileSpeedBonus: 0
+  damageBonus: 0.4
+  attackRangeBonus: 0
+  attackCooldownReduction: 0
+  sizeMultiplierBonus: 0
+  enableBounce: 0
+  bounceCountBonus: 0
+  enableHoming: 0
+  homingStrength: 0
+  pierceBonus: 0
+  enableInfinitePierce: 0
+  enableZigzag: 0
+  zigzagFrequencyBonus: 0
+  zigzagAmplitudeBonus: 0
+  enableChaotic: 0
+  chaosStrengthBonus: 0
+  enableOrbit: 0
+  orbitRadiusBonus: 0
+  orbitSpeedBonus: 0
+  orbitDurationBonus: 0
+  sparkAmount: 0
+  luckAmount: 0
