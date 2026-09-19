@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 123024847897844187}
   m_Layer: 0
   m_Name: BigBoss_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,6 +207,9 @@ MonoBehaviour:
   destroyOnDeath: 1
   coinPrefab: {fileID: 2504393766816499448, guid: dcc154fac1c623141be313af5053f653,
     type: 3}
+  spriteRenderer: {fileID: 6682054521430794236}
+  damageFlashColor: {r: 1, g: 0.25, b: 0.25, a: 0.5019608}
+  damageFlashDuration: 0.1
 --- !u!114 &123024847897844187
 MonoBehaviour:
   m_ObjectHideFlags: 0

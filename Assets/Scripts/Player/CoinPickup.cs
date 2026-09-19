@@ -1,8 +1,9 @@
+using Photon.Pun;
 using UnityEngine;
 
 // Причепи на префаб монетки (Sprite + Collider2D з Is Trigger)
 // Монетка лежить на місці, поки гравець не зайде в радіус "магніту" - тоді летить до нього
-public class CoinPickup : MonoBehaviour
+public class CoinPickup : MonoBehaviourPun
 {
     [Header("Скільки монет дає ця монетка")]
     public int value = 1;
@@ -52,6 +53,10 @@ public class CoinPickup : MonoBehaviour
 
     void Update()
     {
+        //if (!photonView.IsMine)
+        //{
+        //    return;
+        //}
         if (isPopping)
         {
             popTimer -= Time.deltaTime;

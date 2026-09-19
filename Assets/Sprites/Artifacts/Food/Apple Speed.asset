@@ -15,7 +15,7 @@ MonoBehaviour:
   artifactName: "\u0410\u0440\u0442\u0435\u0444\u0430\u043A\u0442"
   icon: {fileID: 5179026337195835311, guid: 23e3ede6dd1d9ce418d117581ffc37af, type: 3}
   description: 
-  speedBonus: 0.5
+  speedBonus: 0.1
   heartsToAdd: 0
   projectileSpeedBonus: 0
   damageBonus: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
   enableChaotic: 0
   chaosStrengthBonus: 0
   enableOrbit: 0
-  orbitDurationBonus: 2
+  orbitDurationBonus: 0
   sparkAmount: 0
   luckAmount: 0
   enableStations: 0

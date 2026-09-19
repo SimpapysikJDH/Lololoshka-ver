@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
-// Причепи цей скрипт на GameObject персонажа
-// Потрібні компоненти: Rigidbody2D, Animator, SpriteRenderer, PlayerStats
-// Потрібен встановлений пакет "Input System" (Window -> Package Manager)
+
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(PlayerStats))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviourPun
 {
     [Header("Межі території (якщо потрібно обмежити рух)")]
     public bool useBounds = false;
@@ -93,6 +92,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        //if (!photonView.IsMine)
+        //{
+            //return;
+        //}
         // Поки isBusy — повністю ігноруємо ввід гравця (персонаж не рухається)
         if (isBusy)
             return;

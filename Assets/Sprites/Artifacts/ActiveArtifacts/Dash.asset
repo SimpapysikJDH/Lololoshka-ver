@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 
   effectType: 7
   duration: 1
-  value: 5
+  value: 1
   charges: 2147483647
   cooldownRooms: 1
   worldPickupPrefab: {fileID: 7691690835049150679, guid: 08907192fff815f4bbeb14f18a411121,

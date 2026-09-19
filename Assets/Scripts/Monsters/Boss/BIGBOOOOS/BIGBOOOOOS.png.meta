@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 7f738293790eebb4a8b2f16b466539d3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4232428746035762117
+    second: BIGBOOOOOS_0
+  - first:
+      213: 16609932441956596
+    second: BIGBOOOOOS_1
+  - first:
+      213: 8918599299440997474
+    second: BIGBOOOOOS_2
+  - first:
+      213: 1200938741951297473
+    second: BIGBOOOOOS_3
+  - first:
+      213: 5524508616301764408
+    second: BIGBOOOOOS_4
+  - first:
+      213: -943209679746105514
+    second: BIGBOOOOOS_5
+  - first:
+      213: 4381592937984196522
+    second: BIGBOOOOOS_6
+  - first:
+      213: 5489049296367926197
+    second: BIGBOOOOOS_7
+  - first:
+      213: 6097863781354289238
+    second: BIGBOOOOOS_8
+  - first:
+      213: -6495141772223258005
+    second: BIGBOOOOOS_9
+  - first:
+      213: 5442344175922782723
+    second: BIGBOOOOOS_10
+  - first:
+      213: -3101629414975460336
+    second: BIGBOOOOOS_11
+  - first:
+      213: 2572064318024968684
+    second: BIGBOOOOOS_12
+  - first:
+      213: 5288761752988927368
+    second: BIGBOOOOOS_13
+  - first:
+      213: 4540492056554160155
+    second: BIGBOOOOOS_14
+  - first:
+      213: -3658066727389616120
+    second: BIGBOOOOOS_15
+  - first:
+      213: 3684231126983838871
+    second: BIGBOOOOOS_16
+  - first:
+      213: -8657455883375690891
+    second: BIGBOOOOOS_17
+  - first:
+      213: 7893615022444015013
+    second: BIGBOOOOOS_18
+  - first:
+      213: 1738656255211490524
+    second: BIGBOOOOOS_19
+  - first:
+      213: -4170076307033803286
+    second: BIGBOOOOOS_20
+  - first:
+      213: 5874961048892222238
+    second: BIGBOOOOOS_21
+  - first:
+      213: 6363808783279868536
+    second: BIGBOOOOOS_22
+  - first:
+      213: 3517886135906183190
+    second: BIGBOOOOOS_23
+  - first:
+      213: 7596885791281002816
+    second: BIGBOOOOOS_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BIGBOOOOOS_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c31d98258b9cba30800000000000000
+      internalID: 4232428746035762117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f032f245a20b3000800000000000000
+      internalID: 16609932441956596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2647a316fca35cb70800000000000000
+      internalID: 8918599299440997474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7f2074c679aa010800000000000000
+      internalID: 1200938741951297473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 6
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f5041015ffaac40800000000000000
+      internalID: 5524508616301764408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 6
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ff50a2bcb09e2f0800000000000000
+      internalID: -943209679746105514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_6
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 6
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf78eaff8b8ecc30800000000000000
+      internalID: 4381592937984196522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_7
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 6
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb3e98b0450d2c40800000000000000
+      internalID: 5489049296367926197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_8
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658b7502dc6ff9450800000000000000
+      internalID: 6097863781354289238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_9
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62e4dc88fe9cd5a0800000000000000
+      internalID: -6495141772223258005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_10
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3022b477137178b40800000000000000
+      internalID: 5442344175922782723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_11
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c2c7fea7cc4f4d0800000000000000
+      internalID: -3101629414975460336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_12
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce9e55faedec1b320800000000000000
+      internalID: 2572064318024968684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_13
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885c3941bc4756940800000000000000
+      internalID: 5288761752988927368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_14
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 6
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10c4680871130f30800000000000000
+      internalID: 4540492056554160155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_15
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 808244551bfeb3dc0800000000000000
+      internalID: -3658066727389616120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_16
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c0f4aa0b4012330800000000000000
+      internalID: 3684231126983838871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_17
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 8
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57bb6c44eb98ad780800000000000000
+      internalID: -8657455883375690891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_18
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad667e6a01cb8d60800000000000000
+      internalID: 7893615022444015013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_19
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc446ef6a2f02810800000000000000
+      internalID: 1738656255211490524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_20
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae53af851b9e026c0800000000000000
+      internalID: -4170076307033803286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_21
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b2a7472fd088150800000000000000
+      internalID: 5874961048892222238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_22
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a48e91f5ac05850800000000000000
+      internalID: 6363808783279868536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_23
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618a5f25dca02d030800000000000000
+      internalID: 3517886135906183190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BIGBOOOOOS_24
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 6
+        width: 28
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049348c806f8d6960800000000000000
+      internalID: 7596885791281002816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BIGBOOOOOS_0: 4232428746035762117
+      BIGBOOOOOS_1: 16609932441956596
+      BIGBOOOOOS_10: 5442344175922782723
+      BIGBOOOOOS_11: -3101629414975460336
+      BIGBOOOOOS_12: 2572064318024968684
+      BIGBOOOOOS_13: 5288761752988927368
+      BIGBOOOOOS_14: 4540492056554160155
+      BIGBOOOOOS_15: -3658066727389616120
+      BIGBOOOOOS_16: 3684231126983838871
+      BIGBOOOOOS_17: -8657455883375690891
+      BIGBOOOOOS_18: 7893615022444015013
+      BIGBOOOOOS_19: 1738656255211490524
+      BIGBOOOOOS_2: 8918599299440997474
+      BIGBOOOOOS_20: -4170076307033803286
+      BIGBOOOOOS_21: 5874961048892222238
+      BIGBOOOOOS_22: 6363808783279868536
+      BIGBOOOOOS_23: 3517886135906183190
+      BIGBOOOOOS_24: 7596885791281002816
+      BIGBOOOOOS_3: 1200938741951297473
+      BIGBOOOOOS_4: 5524508616301764408
+      BIGBOOOOOS_5: -943209679746105514
+      BIGBOOOOOS_6: 4381592937984196522
+      BIGBOOOOOS_7: 5489049296367926197
+      BIGBOOOOOS_8: 6097863781354289238
+      BIGBOOOOOS_9: -6495141772223258005
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

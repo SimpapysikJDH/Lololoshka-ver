@@ -139,6 +139,9 @@ MonoBehaviour:
   destroyOnDeath: 1
   coinPrefab: {fileID: 2504393766816499448, guid: dcc154fac1c623141be313af5053f653,
     type: 3}
+  spriteRenderer: {fileID: 740297562969155615}
+  damageFlashColor: {r: 1, g: 0.25, b: 0.25, a: 0.5019608}
+  damageFlashDuration: 0.1
 --- !u!95 &7459101750477847283
 Animator:
   serializedVersion: 7

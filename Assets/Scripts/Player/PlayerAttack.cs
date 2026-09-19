@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 // Причепи на GameObject гравця (той самий, де PlayerMovement)
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerStats))]
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviourPun
 {
     [Header("Префаб кульки (Projectile.cs на ньому)")]
     public GameObject projectilePrefab;
@@ -51,6 +52,10 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        //if (!photonView.IsMine)
+        //{
+            //return;
+        //}
         if (!canAttack) return; // атака ще не розблокована (гравець не отримав пляшечку)
         if (Keyboard.current == null) return;
 

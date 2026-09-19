@@ -1,7 +1,8 @@
 using UnityEngine;
+using Photon.Pun;
 
 // Причепи на GameObject гравця (той самий, де PlayerMovement і PlayerHealth)
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviourPun
 {
     [Header("Швидкість гравця")]
     public float moveSpeed = 5f;

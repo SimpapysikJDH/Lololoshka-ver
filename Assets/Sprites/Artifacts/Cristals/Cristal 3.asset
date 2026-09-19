@@ -17,9 +17,9 @@ MonoBehaviour:
   description: 
   speedBonus: 0
   heartsToAdd: 0
-  projectileSpeedBonus: 0
-  damageBonus: 0.5
-  attackRangeBonus: 0
+  projectileSpeedBonus: 0.4
+  damageBonus: 0.1
+  attackRangeBonus: 0.2
   attackCooldownReduction: 0.1
   sizeMultiplierBonus: 0
   enableBounce: 0

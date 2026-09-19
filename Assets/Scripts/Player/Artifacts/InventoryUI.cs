@@ -4,26 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 
-// Причепи цей скрипт на GameObject, який ЗАВЖДИ активний на сцені (наприклад, кореневий
-// Canvas або порожній "UIManager" об'єкт) - якщо вимкнути сам цей об'єкт, Update() не
-// спрацює і клавіша E перестане відкривати інвентар.
-//
-// Структура ієрархії, яку варто зробити в Canvas (за твоїми скрінами - зліва портрет
-// гравця, справа сітка з артефактами):
-//
-// UIManager (цей скрипт)
-//   └─ InventoryPanel              <- тягнеш у поле panelRoot нижче, стартово можна лишити УВІМКНЕНИМ
-//        │                            в Editor'і (скрипт сам вимкне його в Awake)
-//        ├─ PlayerPortrait (Image)   - статична картинка гравця, як на твоєму скріні
-//        └─ SlotsGrid (порожній об'єкт з Grid Layout Group) <- тягнеш у поле slotsGrid
-//             (сюди в рантаймі спавляться слоти з префабу slotPrefab)
-//        └─ InfoPanel (Image/Panel) - зʼявляється при наведенні на слот
-//             ├─ InfoIcon           (Image)
-//             ├─ InfoName           (TextMeshPro - Text)
-//             └─ InfoDescription    (TextMeshPro - Text)
-//
-// Окремо потрібен префаб слоту (Image-фон + ArtifactSlotUI.cs, див. ArtifactSlotUI.cs) -
-// його тягнеш у поле slotPrefab.
+
 public class InventoryUI : MonoBehaviour
 {
     [Header("Гравець")]

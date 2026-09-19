@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
 // Причепи на GameObject гравця (той самий, де PlayerMovement)
 [RequireComponent(typeof(SpriteRenderer))]
-public class PlayerHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviourPun, IDamageable
 {
     [Header("Здоров'я (1 серце = 2 одиниці)")]
     public int maxHearts = 3;          // скільки сердець максимум

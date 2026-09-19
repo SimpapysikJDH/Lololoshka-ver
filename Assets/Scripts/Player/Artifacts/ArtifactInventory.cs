@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Причепи на GameObject гравця (той самий, де PlayerStats)
-// Зберігає список усіх підібраних артефактів - для вікна інвентаря (по E).
-// Реєстрація артефакту відбувається автоматично з ArtifactData.ApplyEffect(),
-// тобто нічого додатково викликати не треба - просто щоб цей компонент був на гравці.
+
 public class ArtifactInventory : MonoBehaviour
 {
     // Один рядок в інвентарі: сам артефакт + скільки разів його підібрано

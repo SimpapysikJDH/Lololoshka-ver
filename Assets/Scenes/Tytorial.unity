@@ -5344,9 +5344,9 @@ RectTransform:
   m_Father: {fileID: 417045847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25.312805, y: -266.67798}
-  m_SizeDelta: {x: 435.4999, y: -258.2}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 25.312805, y: 27.822021}
+  m_SizeDelta: {x: 435.49988, y: 330.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341105506
 MonoBehaviour:
@@ -9633,7 +9633,7 @@ MonoBehaviour:
   ShowDebugText: 0
   ShowCameraFrustum: 0
   IgnoreTimeScale: 0
-  WorldUpOverride: {fileID: 1272656316}
+  WorldUpOverride: {fileID: 0}
   ChannelMask: -1
   UpdateMethod: 1
   BlendUpdateMethod: 1
@@ -9759,7 +9759,7 @@ PlayableDirector:
   - key: {fileID: -4630584439208307728, guid: 03586686b04ee714ebb433b8eeb142d3, type: 2}
     value: {fileID: 89516732}
   - key: {fileID: -3144903195621876644, guid: 03586686b04ee714ebb433b8eeb142d3, type: 2}
-    value: {fileID: 1272656314}
+    value: {fileID: 0}
   - key: {fileID: -4590145199628363372, guid: 03586686b04ee714ebb433b8eeb142d3, type: 2}
     value: {fileID: 521755043}
   m_ExposedReferences:
@@ -10266,18 +10266,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1272656314 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4518663876159627492, guid: d4583368e252a32428471517470d6953,
-    type: 3}
-  m_PrefabInstance: {fileID: 1426059928}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1272656316 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6821736273773780815, guid: d4583368e252a32428471517470d6953,
-    type: 3}
-  m_PrefabInstance: {fileID: 1426059928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1374398254
 GameObject:
   m_ObjectHideFlags: 0
@@ -15293,6 +15281,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1769417407295886461, guid: d4583368e252a32428471517470d6953,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.029397964
+      objectReference: {fileID: 0}
     - target: {fileID: 3093601887777852382, guid: d4583368e252a32428471517470d6953,
         type: 3}
       propertyPath: m_Sprite
@@ -15307,6 +15300,11 @@ PrefabInstance:
     - target: {fileID: 3093601887777852382, guid: d4583368e252a32428471517470d6953,
         type: 3}
       propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737390581749630980, guid: d4583368e252a32428471517470d6953,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6821736273773780815, guid: d4583368e252a32428471517470d6953,

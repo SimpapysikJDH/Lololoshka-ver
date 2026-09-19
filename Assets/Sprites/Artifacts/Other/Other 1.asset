@@ -18,7 +18,7 @@ MonoBehaviour:
   speedBonus: 0
   heartsToAdd: 0
   projectileSpeedBonus: 0
-  damageBonus: 0
+  damageBonus: 0.2
   attackRangeBonus: 0
   attackCooldownReduction: 0
   sizeMultiplierBonus: 0.1
@@ -82,6 +82,11 @@ MonoBehaviour:
   stationEnemyLayerOverride:
     serializedVersion: 2
     m_Bits: 0
+  projectileCountBonus: 0
+  multishotIntervalBonus: 0
+  multishotSpreadAngleBonus: 0
+  multishotSpacingBonus: 0
+  randomSpawnRadiusBonus: 0
   comboFixedDamage: 0.1
   comboFixedAttackRange: 2
   comboFixedAttackCooldown: 8

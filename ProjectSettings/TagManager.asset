@@ -8,6 +8,7 @@ TagManager:
   - Beam
   - Bullet
   - Wall
+  - ShopSpawnPoint
   layers:
   - Default
   - TransparentFX

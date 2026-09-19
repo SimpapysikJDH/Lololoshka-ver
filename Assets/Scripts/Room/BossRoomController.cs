@@ -41,6 +41,10 @@ public class BossRoomController : MonoBehaviour
     [Header("Хвилі ворогів (по порядку)")]
     public List<BossWave> waves = new List<BossWave>();
 
+    [Header("Зона переходу в магазин (вмикається після останньої хвилі)")]
+    [Tooltip("Об'єкт з BossExitPortal - тримай його ВИМКНЕНИМ в редакторі, тут він вмикається сам після перемоги")]
+    public GameObject shopPortal;
+
     [Header("Ефекти на старті бою (необов'язково)")]
     public ParticleSystem fightStartParticles;
     public AudioClip fightStartSfx;
@@ -112,6 +116,14 @@ public class BossRoomController : MonoBehaviour
         PlaySfx(victorySfx);
         if (victoryParticles != null)
             victoryParticles.Play();
+
+        // НЕ телепортуємо гравця автоматично - вмикаємо зону-портал,
+        // ефект зникання і перехід у магазин станеться, коли гравець САМ зайде в неї
+        if (shopPortal != null)
+            shopPortal.SetActive(true);
+        else
+            Debug.LogWarning($"[{name}] BossRoomController: поле Shop Portal не призначене в інспекторі - " +
+                              "гравець не зможе потрапити в магазин після перемоги.");
     }
 
     void SpawnWave(BossWave wave)

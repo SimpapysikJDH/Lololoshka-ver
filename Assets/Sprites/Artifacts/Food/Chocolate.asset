@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: af52f1c5cce335348a4a8583f0ef6f5d, type: 3}
   description: 
   speedBonus: 0
-  heartsToAdd: 2
+  heartsToAdd: 3
   projectileSpeedBonus: 0
   damageBonus: 0
   attackRangeBonus: 0

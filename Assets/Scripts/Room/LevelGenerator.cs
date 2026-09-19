@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public enum RoomShape { Normal, Big, Square }
@@ -33,6 +32,11 @@ public class LevelGenerator : MonoBehaviour
     public GameObject[] bigBossRoomPrefabs;
     [Tooltip("Не використовується: кімната боса тепер завжди ставиться в найвіддаленішій точці, а не за шансом.")]
     [Range(0f, 1f)] public float bigBossRoomChance = 0.5f;
+    [Tooltip("Якщо вимкнено - кімната боса НІКОЛИ не буде повернута (завжди rotationSteps = 0). " +
+             "Це впливає на те, ЯКІ САМЕ 4 клітинки сітки резервуються під неї (вгору-вправо/вгору-вліво/тощо), " +
+             "тож вимкнення може означати, що в деяких лабіринтах для неї не знайдеться місця " +
+             "(тоді впаде попередження в консоль і буде використано звичайну 1-клітинкову кімнату).")]
+    public bool allowBossRoomRotation = false;
 
     [Header("Кімната з вибором артефакту (заходиться ТІЛЬКИ знизу)")]
     public GameObject[] artifactRoomPrefabs;
@@ -222,7 +226,7 @@ public class LevelGenerator : MonoBehaviour
                 if (cellOwner.ContainsKey(firstCell)) continue;
                 if (CountDistinctNeighborRooms(firstCell, new HashSet<Vector2Int> { firstCell }, -1) > 1) continue;
 
-                if (TryPlaceShape(firstCell, SquareShapeOffsets, out List<Vector2Int> bossCells, out int bossRot))
+                if (TryPlaceShape(firstCell, SquareShapeOffsets, out List<Vector2Int> bossCells, out int bossRot, allowBossRoomRotation))
                 {
                     CreateRoom(bossCells, RoomShape.Square, bossRot);
                     rooms[rooms.Count - 1].type = RoomType.Boss;
@@ -293,9 +297,9 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    bool TryPlaceShape(Vector2Int anchorCell, Vector2Int[] canonicalOffsets, out List<Vector2Int> resultCells, out int resultRotation)
+    bool TryPlaceShape(Vector2Int anchorCell, Vector2Int[] canonicalOffsets, out List<Vector2Int> resultCells, out int resultRotation, bool allowRotation = true)
     {
-        List<int> rotationsToTry = new List<int> { 0, 1, 2, 3 };
+        List<int> rotationsToTry = allowRotation ? new List<int> { 0, 1, 2, 3 } : new List<int> { 0 };
         Shuffle(rotationsToTry);
 
         foreach (int rotation in rotationsToTry)
@@ -696,6 +700,13 @@ public class LevelGenerator : MonoBehaviour
 
     void PlacePlayerAtStart()
     {
+        // На Level1 гравець зазвичай перетягнутий в інспекторі. Але на Level2, Level3... це вже
+        // ІНША сцена і ІНШИЙ екземпляр LevelGenerator - інспекторне посилання з першої сцени сюди
+        // не переноситься. Гравець при цьому й далі живий (DontDestroyOnLoad через GameFlowManager/
+        // сам об'єкт гравця), тому як запасний варіант шукаємо його за тегом "Player".
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player");
+
         if (player != null)
             player.transform.position = startRoomWorldPos;
 
