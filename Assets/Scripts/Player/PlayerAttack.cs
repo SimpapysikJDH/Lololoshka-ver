@@ -52,10 +52,10 @@ public class PlayerAttack : MonoBehaviourPun
 
     void Update()
     {
-        //if (!photonView.IsMine)
-        //{
-            //return;
-        //}
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         if (!canAttack) return; // атака ще не розблокована (гравець не отримав пляшечку)
         if (Keyboard.current == null) return;
 
@@ -175,7 +175,7 @@ public class PlayerAttack : MonoBehaviourPun
     // і для кожного пострілу в черзі (FireBurstRoutine).
     void FireSingleBullet(Vector2 spawnPos, Vector2 direction)
     {
-        GameObject bulletObj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
+        GameObject bulletObj = PhotonNetwork.Instantiate(projectilePrefab.name, spawnPos, Quaternion.identity);
         Projectile projectile = bulletObj.GetComponent<Projectile>();
         if (projectile != null)
         {

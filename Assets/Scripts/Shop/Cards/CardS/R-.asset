@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a8955f01fc4d741814594e4d8300a5, type: 3}
+  m_Name: R-
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  stat: 3
+  value: 0.1
+  isNegative: 1
+  weight: 1
+  frontSprite: {fileID: 6472002894137265704, guid: ca7352e920546744eb5920b07659d8d1,
+    type: 3}
+  frontTiltSprite: {fileID: 6083888991330063106, guid: ca7352e920546744eb5920b07659d8d1,
+    type: 3}

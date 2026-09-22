@@ -53,10 +53,10 @@ public class CoinPickup : MonoBehaviourPun
 
     void Update()
     {
-        //if (!photonView.IsMine)
-        //{
-        //    return;
-        //}
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         if (isPopping)
         {
             popTimer -= Time.deltaTime;

@@ -93,10 +93,10 @@ public class PlayerMovement : MonoBehaviourPun
     void Update()
     {
 
-        //if (!photonView.IsMine)
-        //{
-            //return;
-        //}
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         // Поки isBusy — повністю ігноруємо ввід гравця (персонаж не рухається)
         if (isBusy)
             return;
@@ -177,6 +177,11 @@ public class PlayerMovement : MonoBehaviourPun
 
     void FixedUpdate()
     {
+
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         // Поки isBusy (наприклад під час DashForwardRoutine з ActiveArtifactData) -
         // швидкістю керує зовнішній код, і FixedUpdate НЕ повинен її перезаписувати
         // на appliedVelocity (0) щокадру - інакше ривок постійно "гаситься" фізикою

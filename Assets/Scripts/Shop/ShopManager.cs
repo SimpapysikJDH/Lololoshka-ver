@@ -27,6 +27,9 @@ public class ShopManager : MonoBehaviourPun
     // Викликається, коли гравцю відмовили в покупці (слот уже забрав хтось інший, поки летів запит)
     public event System.Action<int> OnPurchaseDenied;
 
+    // Для віконця продавця (SellerPanelUI): продавець реагує фразою на покупку/відмову/нестачу грошей
+    public event System.Action<SellerEvent> OnSellerEvent;
+
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -163,6 +166,7 @@ public class ShopManager : MonoBehaviourPun
             if (health.maxHearts * 2 - offer.heartCost < 2)
             {
                 Debug.Log("[Shop] СТОП: недостатньо сердець");
+                OnSellerEvent?.Invoke(SellerEvent.NotEnoughHearts);
                 return;
             }
         }
@@ -177,6 +181,7 @@ public class ShopManager : MonoBehaviourPun
             if (stats.coins < offer.coinPrice)
             {
                 Debug.Log($"[Shop] СТОП: не вистачає монет ({stats.coins} < {offer.coinPrice})");
+                OnSellerEvent?.Invoke(SellerEvent.NotEnoughCoins);
                 return;
             }
         }
@@ -240,12 +245,14 @@ public class ShopManager : MonoBehaviourPun
         }
 
         offer.artifact.ApplyEffect(localPlayer);
+        OnSellerEvent?.Invoke(SellerEvent.Purchased);
     }
 
     [PunRPC]
     private void RPC_PurchaseDenied(int slotIndex)
     {
         OnPurchaseDenied?.Invoke(slotIndex);
+        OnSellerEvent?.Invoke(SellerEvent.AlreadySold);
     }
 
     // --- Допоміжне ---
