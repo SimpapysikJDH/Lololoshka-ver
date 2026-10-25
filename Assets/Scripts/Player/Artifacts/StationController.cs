@@ -355,6 +355,7 @@ public class StationController : MonoBehaviour
 
     private void SpawnStation(Vector3 spawnPos)
     {
+        EnsureContainer(); // контейнер знищується разом зі сценою, а гравець живе далі
         // Якщо ліміт досягнуто - прибираємо найстарішу станцію, щоб звільнити місце.
         if (activeStations.Count >= maxStations && activeStations.Count > 0)
         {
@@ -511,6 +512,7 @@ public class StationController : MonoBehaviour
 
     private LineRenderer CreateLinkRenderer()
     {
+        EnsureContainer();
         GameObject lineObj = new GameObject("StationLink");
         lineObj.transform.SetParent(container);
 

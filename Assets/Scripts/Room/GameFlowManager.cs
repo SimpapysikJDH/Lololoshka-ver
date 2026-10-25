@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Photon.Pun;
 
 // Один екземпляр на всю гру. Постав на порожній GameObject у ПЕРШІЙ сцені (Level1).
 // Завдяки DontDestroyOnLoad переживає всі наступні переходи сцен
@@ -9,7 +8,7 @@ using Photon.Pun;
 // ВАЖЛИВО: назви сцен мають бути додані в File -> Build Settings -> Scenes In Build:
 // "Level1", "Level2", "Level3", ... (рівні) і "Shop" (магазин, одна й та сама сцена,
 // що перезавантажується заново щоразу - тому асортимент товарів рандомиться наново).
-public class GameFlowManager : MonoBehaviourPun
+public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance { get; private set; }
 
@@ -102,18 +101,6 @@ public class GameFlowManager : MonoBehaviourPun
 
     private void LoadScene(string sceneName)
     {
-        // У мультиплеєрі сцену вантажить ЛИШЕ мастер - решта гравців підхоплюють
-        // автоматично, ЯКЩО десь при вході в кімнату виставлено
-        // PhotonNetwork.AutomaticallySyncScene = true (зроби це в скрипті підключення
-        // до Photon, якщо ще не зроблено - інакше решта гравців не переключаться самі)
-        if (PhotonNetwork.IsConnected)
-        {
-            if (PhotonNetwork.IsMasterClient)
-                PhotonNetwork.LoadLevel(sceneName);
-        }
-        else
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-        }
+        SceneManager.LoadScene(sceneName);
     }
 }

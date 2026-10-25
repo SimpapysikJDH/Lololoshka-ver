@@ -1408,9 +1408,7 @@ GameObject:
   - component: {fileID: 6021792122107820706}
   - component: {fileID: 7857751411408635463}
   - component: {fileID: 1395935053471080050}
-  - component: {fileID: 8661553133431618518}
-  - component: {fileID: 3210558429873405085}
-  - component: {fileID: 9014423802086000155}
+  - component: {fileID: 4253894426779816490}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1558,6 +1556,8 @@ MonoBehaviour:
   maxHearts: 3
   currentHP: 0
   goldenHeartCount: 1
+  menuSceneName: Menu
+  deathScreenFont: {fileID: 0}
   invincibilityDuration: 1
   flickerInterval: 0.1
 --- !u!114 &3516163821552046175
@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb18322ec066201498c89031b1fdb86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArtifactInventory
---- !u!114 &8661553133431618518
+--- !u!114 &4253894426779816490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1731,62 +1731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd9a8c8fd08ddd4ca1e71baaaecbcb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentPlayer
---- !u!114 &3210558429873405085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4737390581749630980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonTransformViewClassic
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
---- !u!114 &9014423802086000155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4737390581749630980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: PhotonUnityNetworking::Photon.Pun.PhotonView
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 3210558429873405085}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &4892334927890816632
 GameObject:
   m_ObjectHideFlags: 0

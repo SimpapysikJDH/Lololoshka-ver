@@ -1,12 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Photon.Pun;
+
 
 // Причепи на GameObject гравця (той самий, де PlayerMovement)
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerStats))]
-public class PlayerAttack : MonoBehaviourPun
+public class PlayerAttack : MonoBehaviour
 {
     [Header("Префаб кульки (Projectile.cs на ньому)")]
     public GameObject projectilePrefab;
@@ -52,10 +52,7 @@ public class PlayerAttack : MonoBehaviourPun
 
     void Update()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
+
         if (!canAttack) return; // атака ще не розблокована (гравець не отримав пляшечку)
         if (Keyboard.current == null) return;
 
@@ -175,7 +172,7 @@ public class PlayerAttack : MonoBehaviourPun
     // і для кожного пострілу в черзі (FireBurstRoutine).
     void FireSingleBullet(Vector2 spawnPos, Vector2 direction)
     {
-        GameObject bulletObj = PhotonNetwork.Instantiate(projectilePrefab.name, spawnPos, Quaternion.identity);
+        GameObject bulletObj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
         Projectile projectile = bulletObj.GetComponent<Projectile>();
         if (projectile != null)
         {

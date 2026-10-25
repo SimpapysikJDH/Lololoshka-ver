@@ -1,3 +1,4 @@
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -88,6 +89,8 @@ public class MonsterHealth : MonoBehaviour, IDamageable
     {
         if (IsDead) return; // щоб Die() не спрацював двічі, якщо шкода прийде ще раз тим самим кадром
         IsDead = true;
+
+        RunStats.RegisterKill(); // для екрану смерті
 
         if (flashRoutine != null)
         {

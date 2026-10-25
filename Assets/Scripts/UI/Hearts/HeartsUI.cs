@@ -25,6 +25,10 @@ public class HeartsUI : MonoBehaviour
 
     void OnEnable()
     {
+        // Гравець переживає зміну сцен (PersistentPlayer), а посилання з інспектора - ні
+        if (playerHealth == null)
+            playerHealth = FindFirstObjectByType<PlayerHealth>();
+
         if (playerHealth != null)
             playerHealth.OnHealthChanged += UpdateHearts;
     }

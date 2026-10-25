@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Причепи на кореневий об'єкт панелі магазину (Canvas -> ShopPanel). Підписується на ShopManager
-// і перемальовує слоти щоразу, як асортимент або статус покупок змінюється (в т.ч. у інших гравців).
+// і перемальовує слоти щоразу, як асортимент або статус покупок змінюється.
 public class ShopUI : MonoBehaviour
 {
     [Header("Посилання")]
@@ -14,7 +14,6 @@ public class ShopUI : MonoBehaviour
         if (shopManager != null)
         {
             shopManager.OnShopUpdated += Refresh;
-            shopManager.OnPurchaseDenied += HandlePurchaseDenied;
             Refresh(); // якщо асортимент уже згенерувався раніше - підхопимо його зараз
         }
     }
@@ -22,10 +21,7 @@ public class ShopUI : MonoBehaviour
     void OnDisable()
     {
         if (shopManager != null)
-        {
             shopManager.OnShopUpdated -= Refresh;
-            shopManager.OnPurchaseDenied -= HandlePurchaseDenied;
-        }
     }
 
     public void Open()
@@ -48,13 +44,5 @@ public class ShopUI : MonoBehaviour
             ShopOffer offer = shopManager.GetOffer(i);
             slots[i].Setup(offer, i, shopManager);
         }
-    }
-
-    // Товар уже забрав інший гравець швидше за нас (мультиплеєр) - тут можна показати
-    // спливаючу підказку типу "Вже продано!" над відповідним слотом
-    private void HandlePurchaseDenied(int slotIndex)
-    {
-        Debug.Log($"Слот {slotIndex} вже продано іншим гравцем.");
-        // TODO: спливаюча підказка в UI, якщо потрібно
     }
 }

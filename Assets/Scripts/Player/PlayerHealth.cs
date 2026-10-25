@@ -1,11 +1,12 @@
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
-using Photon.Pun;
 
 // Причепи на GameObject гравця (той самий, де PlayerMovement)
 [RequireComponent(typeof(SpriteRenderer))]
-public class PlayerHealth : MonoBehaviourPun, IDamageable
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [Header("Здоров'я (1 серце = 2 одиниці)")]
     public int maxHearts = 3;          // скільки сердець максимум
@@ -14,11 +15,18 @@ public class PlayerHealth : MonoBehaviourPun, IDamageable
     [Header("Золоті серця (бонус збоку, необмежена кількість)")]
     public int goldenHeartCount = 0;
 
+    [Header("Екран смерті")]
+    [Tooltip("Назва сцени головного меню (має бути додана в Build Settings)")]
+    public string menuSceneName = "MainMenu";
+    [Tooltip("Шрифт для екрану смерті (з українськими літерами). Якщо порожньо - візьметься шрифт будь-якого TMP-тексту в сцені1")]
+    public TMP_FontAsset deathScreenFont;
+
     [Header("Недоторканність після удару")]
     public float invincibilityDuration = 1f;
     public float flickerInterval = 0.1f; // як часто мигає спрайт під час недоторканності
 
     private bool isInvincible = false;
+    private bool isDead = false;
     private SpriteRenderer spriteRenderer;
 
     // Підписуйся на цю подію в UI-скрипті, щоб оновлювати картинки сердець
@@ -32,6 +40,7 @@ public class PlayerHealth : MonoBehaviourPun, IDamageable
     void Start()
     {
         currentHP = maxHearts * 2; // на старті повне здоров'я
+        RunStats.StartRun();       // починаємо відлік часу забігу (спрацює лише раз)
         NotifyHealthChanged();
     }
 
@@ -44,7 +53,7 @@ public class PlayerHealth : MonoBehaviourPun, IDamageable
 
     public void TakeDamage(int amount)
     {
-        if (isInvincible) return;
+        if (isDead || isInvincible) return;
 
         // Золоте серце забирає удар повністю, замість звичайного здоров'я
         // Якщо їх декілька — знімається тільки одне за раз
@@ -144,7 +153,23 @@ public class PlayerHealth : MonoBehaviourPun, IDamageable
 
     private void Die()
     {
-        // Тут познач що робити при смерті — перезапуск рівня, екран смерті тощо
-        Debug.Log("Гравець помер!");
+        if (isDead) return;
+        isDead = true;
+
+        // Зупиняємо блимання спрайта і лишаємо гравця видимим
+        StopAllCoroutines();
+        spriteRenderer.enabled = true;
+
+        // Забираємо керування, поки відкрита плашка смерті
+        PlayerMovement movement = GetComponent<PlayerMovement>();
+        if (movement != null) movement.enabled = false;
+
+        PlayerAttack attack = GetComponent<PlayerAttack>();
+        if (attack != null) attack.enabled = false;
+
+        ActiveArtifactSlot activeSlot = GetComponent<ActiveArtifactSlot>();
+        if (activeSlot != null) activeSlot.enabled = false;
+
+        DeathScreen.Show(gameObject, menuSceneName, deathScreenFont);
     }
 }

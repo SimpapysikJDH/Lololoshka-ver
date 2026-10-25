@@ -1,14 +1,10 @@
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 using System.Collections.Generic;
 
-// Причепи на порожній GameObject в кімнаті магазину (один на кімнату, з PhotonView, Scene Object).
-// Асортимент СПІЛЬНИЙ на всіх гравців - генерується один раз на MasterClient і розсилається
-// всім через RPC. Хто перший купив слот - той забрав, решта гравців бачать "Продано".
-// UI (ShopUI) підписується на OnShopUpdated і сама перемальовує панель.
-[RequireComponent(typeof(PhotonView))]
-public class ShopManager : MonoBehaviourPun
+// Причепи на порожній GameObject в кімнаті магазину (один на кімнату).
+// Асортимент генерується при вході в магазин (Start). UI (ShopUI) підписується
+// на OnShopUpdated і сама перемальовує панель.
+public class ShopManager : MonoBehaviour
 {
     [Header("Каталог товарів (весь пул - і гарантовані, і випадкові разом)")]
     public List<ShopOffer> shopPool = new List<ShopOffer>();
@@ -16,39 +12,25 @@ public class ShopManager : MonoBehaviourPun
     [Header("Скільки товарів показувати одночасно")]
     public int totalSlots = 5;
 
-    // Поточний асортимент зберігаємо як індекси в shopPool (щоб передавати по мережі простими int,
-    // самі ShopOffer/ArtifactData по RPC не передаються)
+    // Поточний асортимент як індекси в shopPool
     private int[] currentOfferIndices;
     private bool[] slotSold;
 
-    // Підписуйся тут (ShopUI), щоб перемальовувати панель щоразу, як асортимент/статус слотів змінюється
+    // Підписуйся тут (ShopUI), щоб перемальовувати панель, коли асортимент/статус слотів змінюється
     public event System.Action OnShopUpdated;
 
-    // Викликається, коли гравцю відмовили в покупці (слот уже забрав хтось інший, поки летів запит)
-    public event System.Action<int> OnPurchaseDenied;
-
-    // Для віконця продавця (SellerPanelUI): продавець реагує фразою на покупку/відмову/нестачу грошей
+    // Для віконця продавця (SellerPanelUI): продавець реагує фразою на покупку/нестачу грошей
     public event System.Action<SellerEvent> OnSellerEvent;
 
     void Start()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            GenerateShop();
-        }
-        else
-        {
-            // Не-мастер (в т.ч. гравець, що зайшов пізніше) - запитуємо поточний стан у мастера
-            photonView.RPC(nameof(RPC_RequestShopState), RpcTarget.MasterClient);
-        }
+        GenerateShop();
     }
 
-    // --- Генерація асортименту (виконує лише MasterClient) ---
+    // --- Генерація асортименту ---
 
     public void GenerateShop()
     {
-        if (!PhotonNetwork.IsMasterClient) return;
-
         List<ShopOffer> chosen = PickOffers();
         currentOfferIndices = new int[totalSlots];
         slotSold = new bool[totalSlots];
@@ -56,7 +38,7 @@ public class ShopManager : MonoBehaviourPun
         for (int i = 0; i < totalSlots; i++)
             currentOfferIndices[i] = (i < chosen.Count) ? shopPool.IndexOf(chosen[i]) : -1;
 
-        photonView.RPC(nameof(RPC_SyncShopState), RpcTarget.All, currentOfferIndices, slotSold);
+        OnShopUpdated?.Invoke();
     }
 
     private List<ShopOffer> PickOffers()
@@ -101,158 +83,59 @@ public class ShopManager : MonoBehaviourPun
         return pool[pool.Count - 1]; // fallback, не повинно статись
     }
 
-    // --- Синхронізація стану між клієнтами ---
-
-    [PunRPC]
-    private void RPC_SyncShopState(int[] offerIndices, bool[] sold)
-    {
-        currentOfferIndices = offerIndices;
-        slotSold = sold;
-        OnShopUpdated?.Invoke();
-    }
-
-    [PunRPC]
-    private void RPC_RequestShopState(PhotonMessageInfo info)
-    {
-        if (!PhotonNetwork.IsMasterClient) return;
-
-        // Мастер ще не встиг згенерувати асортимент (запит прийшов раніше за Start()) -
-        // просто ігноруємо, гравець отримає стан трохи пізніше звичайним RPC_SyncShopState
-        if (currentOfferIndices == null) return;
-
-        photonView.RPC(nameof(RPC_SyncShopState), info.Sender, currentOfferIndices, slotSold);
-    }
-
     // --- Покупка ---
 
-    // Викликай це з UI при натисканні кнопки купівлі. useHearts = true, якщо гравець платить життям
+    // Викликай з UI при натисканні кнопки купівлі. useHearts = true, якщо гравець платить життям
     public void TryPurchase(int slotIndex, bool useHearts)
     {
-        Debug.Log($"[Shop] TryPurchase викликано, slot={slotIndex}, useHearts={useHearts}");
+        if (currentOfferIndices == null || slotIndex < 0 || slotIndex >= totalSlots) return;
 
-        if (currentOfferIndices == null || slotIndex < 0 || slotIndex >= totalSlots)
-        {
-            Debug.Log("[Shop] СТОП: currentOfferIndices == null або невірний slotIndex");
-            return;
-        }
         if (slotSold[slotIndex])
         {
-            Debug.Log("[Shop] СТОП: слот вже проданий");
+            OnSellerEvent?.Invoke(SellerEvent.AlreadySold);
             return;
         }
 
         ShopOffer offer = GetOffer(slotIndex);
-        if (offer == null)
-        {
-            Debug.Log("[Shop] СТОП: offer == null (GetOffer повернув null)");
-            return;
-        }
+        if (offer == null || offer.artifact == null) return;
 
-        GameObject localPlayer = FindLocalPlayer();
-        if (localPlayer == null)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
         {
-            Debug.Log("[Shop] СТОП: localPlayer == null (не знайдено об'єкт з тегом Player)");
+            Debug.LogWarning("[Shop] Не знайдено об'єкт з тегом Player");
             return;
         }
 
         if (useHearts)
         {
-            PlayerHealth health = localPlayer.GetComponent<PlayerHealth>();
-            if (health == null || offer.heartCost <= 0)
-            {
-                Debug.Log("[Shop] СТОП: health == null або heartCost <= 0");
-                return;
-            }
+            PlayerHealth health = player.GetComponent<PlayerHealth>();
+            if (health == null || offer.heartCost <= 0) return;
+
+            // Після покупки має лишитись хоча б 1 серце
             if (health.maxHearts * 2 - offer.heartCost < 2)
             {
-                Debug.Log("[Shop] СТОП: недостатньо сердець");
                 OnSellerEvent?.Invoke(SellerEvent.NotEnoughHearts);
                 return;
             }
+
+            health.AddMaxHearts(-offer.heartCost);
         }
         else
         {
-            PlayerStats stats = localPlayer.GetComponent<PlayerStats>();
-            if (stats == null || offer.coinPrice <= 0)
+            PlayerStats stats = player.GetComponent<PlayerStats>();
+            if (stats == null || offer.coinPrice <= 0) return;
+
+            if (!stats.SpendCoins(offer.coinPrice)) // не вистачає монет
             {
-                Debug.Log("[Shop] СТОП: stats == null або coinPrice <= 0");
-                return;
-            }
-            if (stats.coins < offer.coinPrice)
-            {
-                Debug.Log($"[Shop] СТОП: не вистачає монет ({stats.coins} < {offer.coinPrice})");
                 OnSellerEvent?.Invoke(SellerEvent.NotEnoughCoins);
                 return;
             }
         }
 
-        Debug.Log("[Shop] Всі перевірки пройдено, шлю RPC на MasterClient...");
-        photonView.RPC(nameof(RPC_RequestPurchase), RpcTarget.MasterClient,
-            slotIndex, useHearts, PhotonNetwork.LocalPlayer.ActorNumber);
-    }
-
-    [PunRPC]
-    private void RPC_RequestPurchase(int slotIndex, bool useHearts, int buyerActorNumber)
-    {
-        Debug.Log($"[Shop] RPC_RequestPurchase отримано на MasterClient, slot={slotIndex}");
-
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("[Shop] СТОП: цей клієнт не MasterClient");
-            return;
-        }
-
-        if (slotIndex < 0 || slotIndex >= totalSlots || slotSold[slotIndex])
-        {
-            Debug.Log("[Shop] СТОП: слот вже зайнятий/невірний - відправляю відмову");
-            // Хтось встиг купити раніше, поки летів запит - повідомляємо лише покупця, що не вийшло
-            Player buyer = PhotonNetwork.CurrentRoom.GetPlayer(buyerActorNumber);
-            if (buyer != null)
-                photonView.RPC(nameof(RPC_PurchaseDenied), buyer, slotIndex);
-            return;
-        }
-
         slotSold[slotIndex] = true;
-        Debug.Log("[Shop] Покупка підтверджена, шлю RPC_ConfirmPurchase всім");
-        photonView.RPC(nameof(RPC_ConfirmPurchase), RpcTarget.All, slotIndex, useHearts, buyerActorNumber);
-    }
-
-    [PunRPC]
-    private void RPC_ConfirmPurchase(int slotIndex, bool useHearts, int buyerActorNumber)
-    {
-        slotSold[slotIndex] = true;
+        offer.artifact.ApplyEffect(player);
         OnShopUpdated?.Invoke();
-
-        // Списання валюти й ефект артефакту застосовуються ЛИШЕ на клієнті самого покупця -
-        // у кожного гравця своя локальна PlayerStats/PlayerHealth
-        if (PhotonNetwork.LocalPlayer.ActorNumber != buyerActorNumber) return;
-
-        GameObject localPlayer = FindLocalPlayer();
-        if (localPlayer == null) return;
-
-        ShopOffer offer = GetOffer(slotIndex);
-        if (offer == null || offer.artifact == null) return;
-
-        if (useHearts)
-        {
-            PlayerHealth health = localPlayer.GetComponent<PlayerHealth>();
-            if (health != null) health.AddMaxHearts(-offer.heartCost);
-        }
-        else
-        {
-            PlayerStats stats = localPlayer.GetComponent<PlayerStats>();
-            if (stats != null) stats.SpendCoins(offer.coinPrice);
-        }
-
-        offer.artifact.ApplyEffect(localPlayer);
         OnSellerEvent?.Invoke(SellerEvent.Purchased);
-    }
-
-    [PunRPC]
-    private void RPC_PurchaseDenied(int slotIndex)
-    {
-        OnPurchaseDenied?.Invoke(slotIndex);
-        OnSellerEvent?.Invoke(SellerEvent.AlreadySold);
     }
 
     // --- Допоміжне ---
@@ -268,19 +151,5 @@ public class ShopManager : MonoBehaviourPun
     public bool IsSlotSold(int slotIndex)
     {
         return slotSold != null && slotIndex >= 0 && slotIndex < slotSold.Length && slotSold[slotIndex];
-    }
-
-    // Знаходить GameObject ЛОКАЛЬНОГО гравця (той, чий photonView.IsMine == true).
-    // Якщо мультиплеєр ще не до кінця налаштований (як зараз закоментовано в PlayerMovement.cs /
-    // CoinPickup.cs) - просто поверне перший знайдений об'єкт з тегом "Player".
-    private GameObject FindLocalPlayer()
-    {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (var p in players)
-        {
-            PhotonView pv = p.GetComponent<PhotonView>();
-            if (pv == null || pv.IsMine) return p;
-        }
-        return players.Length > 0 ? players[0] : null;
     }
 }
